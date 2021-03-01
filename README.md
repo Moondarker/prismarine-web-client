@@ -9,6 +9,9 @@ A aVeryUniqueGame client running in a web page. Demo at https://prismarine-web-c
 It runs mineflayer in the browser which connects to a websocket aVeryUniqueGame server.
 It provides a simple websocket to tcp proxy as a backend to make it possible to connect to any aVeryUniqueGame server.
 
+## Screenshot
+![Screenshot of MineWeb in action](screenshot.png)
+
 ## Usage
 
 `npm install -g prismarine-web-client` then run `prismarine-web-client` then open `http://localhost:8080` in your browser
