@@ -220,17 +220,25 @@ async function connect (options) {
     const cursorMesh = new THREE.LineSegments(new THREE.EdgesGeometry(boxGeometry), new THREE.LineBasicMaterial({ color: 0 }))
     viewer.scene.add(cursorMesh)
 
+    let cursorBlock = bot.blockAtCursor()
+
     function updateCursor () {
-      const cursorBlock = bot.blockAtCursor()
-      debugMenu.cursorBlock = cursorBlock
-      if (!cursorBlock || !bot.canDigBlock(cursorBlock)) {
+      const cursorBlockActual = bot.blockAtCursor()
+      if (cursorBlockActual !== cursorBlock) {
+        bot.emit('cursorUpdate', cursorBlockActual, cursorBlock)
+        cursorBlock = cursorBlockActual
+      }
+    }
+
+    bot.on('cursorUpdate', cursor => {
+      if (!cursor || !bot.canDigBlock(cursor)) {
         cursorMesh.visible = false
         return
-      } else {
-        cursorMesh.visible = true
       }
-      cursorMesh.position.set(cursorBlock.position.x + 0.5, cursorBlock.position.y + 0.5, cursorBlock.position.z + 0.5)
-    }
+
+      cursorMesh.visible = true
+      cursorMesh.position.set(cursor.position.x + 0.5, cursor.position.y + 0.5, cursor.position.z + 0.5)
+    })
 
     // Create block break mesh
 
@@ -389,7 +397,6 @@ async function connect (options) {
 
       keepMouseDownAction = true
       while (keepMouseDownAction) { // eslint-disable-line
-        const cursorBlock = bot.blockAtCursor()
         if (!cursorBlock) {
           await sleep(100)
           continue
