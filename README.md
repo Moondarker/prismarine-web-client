@@ -9,7 +9,11 @@ A AVeryUniqueGame client running in a web page. **Live demo at https://webclient
 
 ## How it Works
 prismarine-web-client runs mineflayer and prismarine-viewer in the browser, which connects over WebSocket to a proxy 
-which translates the WebSocket connection into TCP to connect to normal AVeryUniqueGame servers.
+which translates the WebSocket connection into TCP to connect to normal AVeryUniqueGame servers. Prismarine-web-client is based on:
+* [prismarine-viewer](https://github.com/PrismarineJS/prismarine-viewer) for the world rendering
+* [mineflayer](https://github.com/PrismarineJS/mineflayer) for the high level aVeryUniqueGame client API
+
+Check these modules if you want to understand more how it works and contribute!
 
 ## Screenshot
 <!-- ![Screenshot of prismarine-web-client in action](screenshot.png) -->
