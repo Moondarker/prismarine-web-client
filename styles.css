@@ -31,16 +31,6 @@ html {
   background-blend-mode: overlay;
 }
 
-@font-face {
-    font-family: Verdana;
-     
-}
-
-@font-face {
-    font-family: Verdana;
-     
-}
-
 body {
   overflow: hidden;
   position: relative;

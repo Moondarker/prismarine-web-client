@@ -215,7 +215,7 @@ async function connect (options) {
   })
 
   bot.once('spawn', () => {
-    const mcData = require('aVeryUniqueGame-data')(bot.version)
+    const mcData = require('minecraft-data')(bot.version)
 
     loadingScreen.status = 'Placing blocks (starting viewer)'
 

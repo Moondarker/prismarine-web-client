@@ -14,9 +14,9 @@ const config = {
   },
   resolve: {
     alias: {
-      'aVeryUniqueGame-protocol': path.resolve(
+      'minecraft-protocol': path.resolve(
         __dirname,
-        'node_modules/aVeryUniqueGame-protocol/src/index.js'
+        'node_modules/minecraft-protocol/src/index.js'
       ), // Hack to allow creating the client in a browser
       express: false,
       net: 'net-browserify',
